@@ -1,12 +1,13 @@
-﻿using pieces;
+﻿using GameElements;
 
 class Program
 {
+
     public static void Main(string[] args)
     {
-        pawn Pawn = new pawn();
+        game Game = new game();
         Console.Clear();
-        pawn.run();
+        game.run();
 
     }
 }
