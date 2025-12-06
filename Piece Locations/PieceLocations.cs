@@ -9,7 +9,7 @@ namespace Chess
     public class PieceLocations
     {
         // the array of the board
-        public static string[,] boardLocations =
+        public static string[,] BoardLocations =
         {
             {"a1","a2","a3","a4","a5","a6","a7","a8"},
             {"b1","b2","b3","b4","b5","b6","b7","b8"},
@@ -22,22 +22,32 @@ namespace Chess
         };
 
         // the array of where the pieces are currently
-        public static string[,] pieceLocations =
+        public static string[,] PieceCurrentLocations =
         {
-            {"wR","wK","wB","wQ","wK","wB","wK","wR"},
-            {"wP","wP","wP","wP","wP","wP","wP","wP"},
-            {null,null,null,null,null,null,null,null},
-            {null,null,null,null,null,null,null,null},
-            {null,null,null,null,null,null,null,null},
-            {null,null,null,null,null,null,null,null},
+            {"bR","bN","bB",null,"bK","bB","bN","bR"},
             {"bP","bP","bP","bP","bP","bP","bP","bP"},
-            {"bR","bK","bB","bQ","bK","bB","bK","bR"}
+            {null,null,null,null,null,null,null,null},
+            {null,null,null,"bQ",null,null,null,null},
+            {null,null,null,null,null,null,null,null},
+            {null,null,null,null,null,null,null,null},
+            {"wP","wP","wP","wP","wP","wP","wP","wP"},
+            {"wR","wN","wB","wQ","wK","wB","wN","wR"}
         };
 
-        // the array for the moves that are valid for the piece to move to
-        private static string[,] pieceValidMove =
+        // the pieces that are still in play
+        public static string[,] PiecesInPlay =
         {
-            {null,"valid",null,null,null,null,null,null},
+            {"wR","wK","wB","wQ","wK","wB","wK","wR","wP","wP","wP","wP","wP","wP","wP","wP"},
+            {"bR","bK","bB","bQ","bK","bB","bK","bR","bP","bP","bP","bP","bP","bP","bP","bP"}
+        };
+
+        // the peices that have been taken
+        public static string[,] PiecesTaken = new string[16, 16];
+
+        // the array for the moves that are valid for the piece to move to
+        private static string[,] PieceValidMove =
+        {
+            {null,null,null,null,null,null,null,null},
             {null,null,null,null,null,null,null,null},
             {null,null,null,null,null,null,null,null},
             {null,null,null,null,null,null,null,null},
@@ -47,27 +57,84 @@ namespace Chess
             {null,null,null,null,null,null,null,null}
         };
 
+        // method to edit the pieceValidMove array
+        public static void UpdateValidMove(string piece, string location)
+        {
+            string[,] validMoveArray = new string[8, 8]; ;
+            switch (piece)
+            {
+                case "wQ":
+                    PieceValidMove = PieceConstructor.wQ.CreateValidMoveArray(piece, location);
+                    break;
+                //case "wK":
+                //    validMoveArray = PieceConstructor.wK.CreateValidMoveArray(piece, location);
+                //    lines = PieceConstructor.wQ.GetLines();
+                //    break;
+                //case "wN":
+                //    validMoveArray = PieceConstructor.wN.CreateValidMoveArray(piece, location);
+                //    lines = PieceConstructor.wQ.GetLines();
+                //    break;
+                //case "wR":
+                //    validMoveArray = PieceConstructor.wR.CreateValidMoveArray(piece, location);
+                //    lines = PieceConstructor.wQ.GetLines();
+                //    break;
+                //case "WB":
+                //    validMoveArray = PieceConstructor.wB.CreateValidMoveArray(piece, location);
+                //    lines = PieceConstructor.wQ.GetLines();
+                //    break;
+                //case "wP":
+                //    validMoveArray = PieceConstructor.wP.CreateValidMoveArray(piece, location);
+                //    lines = PieceConstructor.wQ.GetLines();
+                //    break;
+                case "bQ":
+                    PieceValidMove = PieceConstructor.bQ.CreateValidMoveArray(piece, location);
+                    break;
+                    //case "bK":
+                    //    validMoveArray = PieceConstructor.bK.CreateValidMoveArray(piece, location);
+                    //    lines = PieceConstructor.bK.GetLines();
+                    //    break;
+                    //case "bN":
+                    //    validMoveArray = PieceConstructor.bN.CreateValidMoveArray(piece, location);
+                    //    lines = PieceConstructor.bN.GetLines();
+                    //    break;
+                    //case "bR":
+                    //    validMoveArray = PieceConstructor.bR.CreateValidMoveArray(piece, location);
+                    //    lines = PieceConstructor.bR.GetLines();
+                    //    break;
+                    //case "bB":
+                    //    validMoveArray = PieceConstructor.bB.CreateValidMoveArray(piece, location);
+                    //    lines = PieceConstructor.bB.GetLines();
+                    //    break;
+                    //case "bP":
+                    //    validMoveArray = PieceConstructor.bP.CreateValidMoveArray(piece, location);
+                    //    lines = PieceConstructor.bP.GetLines();
+                    //    break;
+            }
+        }
+
         // method to move pieces around the board
         public static void MovePiece()
         {
         movePieceStart:
+            Console.Clear();
             //DisplayBoard();
             Console.WriteLine("Type in the location of the piece you would like to move.");
             string moveChoicePiece = Console.ReadLine().ToLower();
+            if (moveChoicePiece == "0") goto movePieceStart;
             Console.WriteLine("Checking your piece choice...");
-            string pieceChosen;
-            string pieceLocation;
-            for (int i = 0; i < boardLocations.GetLength(0); i++)
+            string pieceChosen = "";
+            string pieceLocation = "";
+            for (int i = 0; i < BoardLocations.GetLength(0); i++)
             {
-                for (int j = 0; j < boardLocations.GetLength(1); j++)
+                for (int j = 0; j < BoardLocations.GetLength(1); j++)
                 {
-                    if (boardLocations[i, j] == moveChoicePiece && pieceLocations[i, j] != null)
+                    if (BoardLocations[i, j] == moveChoicePiece && PieceCurrentLocations[i, j] != null)
                     {
-                        pieceChosen = pieceLocations[i, j];
-                        pieceLocation = boardLocations[i, j];
+                        pieceChosen = PieceCurrentLocations[i, j];
+                        pieceLocation = BoardLocations[i, j];
                         goto checkChoiceGood;
                     }
-                    else if (i == boardLocations.GetLength(0) - 1 && j == boardLocations.GetLength(1) - 1)
+                    else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)
                     {
                         Console.WriteLine($"The square: {moveChoicePiece} either doesnt exist or there is no piece there.\nChoose a new piece.");
                         Thread.Sleep(1500);
@@ -76,30 +143,36 @@ namespace Chess
                 }
             }
         checkChoiceGood:
-        // update pieceValidMove array
-        // UpdateValidMove();
+            // update pieceValidMove array
+            UpdateValidMove(pieceChosen, pieceLocation);
+            // foreach (string item in PieceValidMove)
+            // {
+            //     Console.WriteLine(item);
+            // }
 
         moveToCheck:
-            Console.WriteLine("Where do you want to move the piece too? [0 to change piece]");
+            Console.WriteLine("Where do you want to move the piece too? [any num to change piece]");
             string moveChoiceLocation = Console.ReadLine();
-            for (int i = 0; i < boardLocations.GetLength(0); i++)
+            int moveChoiceLocationInt;
+            if (int.TryParse(moveChoiceLocation, out moveChoiceLocationInt)) goto movePieceStart;
+            for (int i = 0; i < BoardLocations.GetLength(0); i++)
             {
-                for (int j = 0; j < boardLocations.GetLength(1); j++)
+                for (int j = 0; j < BoardLocations.GetLength(1); j++)
                 {
-                    if (boardLocations[i, j] == moveChoiceLocation && pieceValidMove[i, j] != null)
+                    if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != null)
                     {
                         //movePiece(pieceLocation, moveChoiceLocation);
-                        goto checkChoiceGood;
+                        goto checkMoveGood;
                     }
-                    else if (i == boardLocations.GetLength(0) - 1 && j == boardLocations.GetLength(1) - 1)
+                    else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)
                     {
-                        Console.WriteLine($"The square: {moveChoicePiece} either doesnt exist or the move is invalid.\nChoose a new location.");
+                        Console.WriteLine($"The square: {moveChoiceLocation} either doesnt exist or the move is invalid.\nChoose a new location.");
                         Thread.Sleep(1500);
-                        goto movePieceStart;
+                        goto moveToCheck;
                     }
                 }
             }
-            // checkMoveGood:
+        checkMoveGood:;
 
         }
     }
