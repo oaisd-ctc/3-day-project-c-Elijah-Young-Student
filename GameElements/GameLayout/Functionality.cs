@@ -427,8 +427,11 @@ class game
                 }
             }else if (boardArray[answer -1] == knightArray || boardArray[answer-1] == knightArrayTwo)
             {
-                if (boardArray[answerTwo-1] == empty)
-                   if (boardArray[answerTwo-1] == empty || (boardArray[answer-1] == knightArray && (boardArray[answerTwo-1] == pawnArrayTwo || boardArray[answerTwo-1] == rookArrayTwo || boardArray[answerTwo-1] == knightArrayTwo ||boardArray[answerTwo-1] == bishopArrayTwo || boardArray[answerTwo-1] == kingArrayTwo ||boardArray[answerTwo-1] == queenArrayTwo)))
+                int Up = answerTwo - answer;
+                int Down = answer - answerTwo;
+                if (Up == 17 || Up == 15 || Up == 10 || Up == 6 || Down == 17 || Down == 15 || Down == 10 || Down == 6)
+                {
+                    if (boardArray[answerTwo-1] == empty || (boardArray[answer-1] == knightArray && (boardArray[answerTwo-1] == pawnArrayTwo || boardArray[answerTwo-1] == rookArrayTwo || boardArray[answerTwo-1] == knightArrayTwo ||boardArray[answerTwo-1] == bishopArrayTwo || boardArray[answerTwo-1] == kingArrayTwo ||boardArray[answerTwo-1] == queenArrayTwo)))
                     {
                         string[] save = boardArray[answer-1];
                         boardArray[answer-1] = empty;
@@ -444,6 +447,12 @@ class game
                     {
                         Console.WriteLine("That space is not available");
                     }
+                }
+                else
+                {
+                    Console.WriteLine("That space is not avaiable");
+                }                 
+                
             }
             else
             {
