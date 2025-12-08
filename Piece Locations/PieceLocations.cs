@@ -24,13 +24,13 @@ namespace Chess
         // the array of where the pieces are currently
         public static string[,] PieceCurrentLocations =
         {
-            {"bR","bN","bB",null,"bK","bB","bN","bR"},
+            {"bR","bN","bB","null","bK","bB","bN","bR"},
             {"bP","bP","bP","bP","bP","bP","bP","bP"},
-            {null,null,null,null,null,null,null,null},
-            {null,null,null,"bQ",null,null,null,null},
-            {null,null,null,null,null,null,null,null},
-            {null,null,null,null,null,null,null,null},
-            {"wP","wP","wP","wP","wP","wP","wP","wP"},
+            {"null","null","null","null","null","null","null","null"},
+            {"null","null","null","bQ","null","wP","null","null"},
+            {"null","null","null","null","null","null","null","null"},
+            {"null","null","null","null","null","wP","null","null"},
+            {"wP","wP","wP","wP","wP","wP","null","wP"},
             {"wR","wN","wB","wQ","wK","wB","wN","wR"}
         };
 
@@ -42,7 +42,7 @@ namespace Chess
         };
 
         // the peices that have been taken
-        public static string[,] PiecesTaken = new string[16, 16];
+        public static string[,] PiecesTaken = new string[2, 16];
 
         // the array for the moves that are valid for the piece to move to
         private static string[,] PieceValidMove =
@@ -145,13 +145,18 @@ namespace Chess
         checkChoiceGood:
             // update pieceValidMove array
             UpdateValidMove(pieceChosen, pieceLocation);
-            // foreach (string item in PieceValidMove)
-            // {
-            //     Console.WriteLine(item);
-            // }
 
         moveToCheck:
             Console.WriteLine("Where do you want to move the piece too? [any num to change piece]");
+            // string s = "";
+            // int e = 1;
+            // foreach (var item in PieceValidMove)
+            // {
+            //     s += item;
+            //     if (e % 8 == 0) s += "\n";
+            //     e++;
+            // }
+            // Console.WriteLine(s);
             string moveChoiceLocation = Console.ReadLine();
             int moveChoiceLocationInt;
             if (int.TryParse(moveChoiceLocation, out moveChoiceLocationInt)) goto movePieceStart;
@@ -159,7 +164,7 @@ namespace Chess
             {
                 for (int j = 0; j < BoardLocations.GetLength(1); j++)
                 {
-                    if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != null)
+                    if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != "null")
                     {
                         //movePiece(pieceLocation, moveChoiceLocation);
                         goto checkMoveGood;
