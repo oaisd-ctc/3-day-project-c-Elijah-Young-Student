@@ -27,10 +27,10 @@ namespace Chess
             {"bR","bN","bB","null","bK","bB","bN","bR"},
             {"bP","bP","bP","bP","bP","bP","bP","bP"},
             {"null","null","null","null","null","null","null","null"},
-            {"null","null","null","bQ","null","wP","null","null"},
+            {"null","null","null","bN","null","null","null","null"},
+            {"null","null","wP","null","null","null","null","null"},
             {"null","null","null","null","null","null","null","null"},
-            {"null","null","null","null","null","wP","null","null"},
-            {"wP","wP","wP","wP","wP","wP","null","wP"},
+            {"null","wP","wP","wP","wP","wP","wP","wP"},
             {"wR","wN","wB","wQ","wK","wB","wN","wR"}
         };
 
@@ -60,53 +60,44 @@ namespace Chess
         // method to edit the pieceValidMove array
         public static void UpdateValidMove(string piece, string location)
         {
-            string[,] validMoveArray = new string[8, 8]; ;
             switch (piece)
             {
                 case "wQ":
                     PieceValidMove = PieceConstructor.wQ.CreateValidMoveArray(piece, location);
                     break;
-                //case "wK":
-                //    validMoveArray = PieceConstructor.wK.CreateValidMoveArray(piece, location);
-                //    lines = PieceConstructor.wQ.GetLines();
-                //    break;
-                //case "wN":
-                //    validMoveArray = PieceConstructor.wN.CreateValidMoveArray(piece, location);
-                //    lines = PieceConstructor.wQ.GetLines();
-                //    break;
-                //case "wR":
-                //    validMoveArray = PieceConstructor.wR.CreateValidMoveArray(piece, location);
-                //    lines = PieceConstructor.wQ.GetLines();
-                //    break;
-                //case "WB":
-                //    validMoveArray = PieceConstructor.wB.CreateValidMoveArray(piece, location);
-                //    lines = PieceConstructor.wQ.GetLines();
-                //    break;
+                case "wK":
+                    PieceValidMove = PieceConstructor.wK.CreateValidMoveArray(piece, location);
+                    break;
+                case "wN":
+                    PieceValidMove = PieceConstructor.wN.CreateValidMoveArray(piece, location);
+                    break;
+                case "wR":
+                    PieceValidMove = PieceConstructor.wR.CreateValidMoveArray(piece, location);
+                    break;
+                case "WB":
+                    PieceValidMove = PieceConstructor.wB.CreateValidMoveArray(piece, location);
+                    break;
                 //case "wP":
-                //    validMoveArray = PieceConstructor.wP.CreateValidMoveArray(piece, location);
+                //    PieceValidMove = PieceConstructor.wP.CreateValidMoveArray(piece, location);
                 //    lines = PieceConstructor.wQ.GetLines();
                 //    break;
                 case "bQ":
                     PieceValidMove = PieceConstructor.bQ.CreateValidMoveArray(piece, location);
                     break;
-                    //case "bK":
-                    //    validMoveArray = PieceConstructor.bK.CreateValidMoveArray(piece, location);
-                    //    lines = PieceConstructor.bK.GetLines();
-                    //    break;
-                    //case "bN":
-                    //    validMoveArray = PieceConstructor.bN.CreateValidMoveArray(piece, location);
-                    //    lines = PieceConstructor.bN.GetLines();
-                    //    break;
-                    //case "bR":
-                    //    validMoveArray = PieceConstructor.bR.CreateValidMoveArray(piece, location);
-                    //    lines = PieceConstructor.bR.GetLines();
-                    //    break;
-                    //case "bB":
-                    //    validMoveArray = PieceConstructor.bB.CreateValidMoveArray(piece, location);
-                    //    lines = PieceConstructor.bB.GetLines();
-                    //    break;
+                case "bK":
+                    PieceValidMove = PieceConstructor.bK.CreateValidMoveArray(piece, location);
+                    break;
+                case "bN":
+                    PieceValidMove = PieceConstructor.bN.CreateValidMoveArray(piece, location);
+                    break;
+                case "bR":
+                    PieceValidMove = PieceConstructor.bR.CreateValidMoveArray(piece, location);
+                    break;
+                case "bB":
+                    PieceValidMove = PieceConstructor.bB.CreateValidMoveArray(piece, location);
+                    break;
                     //case "bP":
-                    //    validMoveArray = PieceConstructor.bP.CreateValidMoveArray(piece, location);
+                    //    PieceValidMove = PieceConstructor.bP.CreateValidMoveArray(piece, location);
                     //    lines = PieceConstructor.bP.GetLines();
                     //    break;
             }
@@ -148,15 +139,6 @@ namespace Chess
 
         moveToCheck:
             Console.WriteLine("Where do you want to move the piece too? [any num to change piece]");
-            // string s = "";
-            // int e = 1;
-            // foreach (var item in PieceValidMove)
-            // {
-            //     s += item;
-            //     if (e % 8 == 0) s += "\n";
-            //     e++;
-            // }
-            // Console.WriteLine(s);
             string moveChoiceLocation = Console.ReadLine();
             int moveChoiceLocationInt;
             if (int.TryParse(moveChoiceLocation, out moveChoiceLocationInt)) goto movePieceStart;

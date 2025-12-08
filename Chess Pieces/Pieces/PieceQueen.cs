@@ -9,7 +9,7 @@ namespace Chess
 
         public string[,] CreateValidMoveArray(string piece, string location)
         {
-            Console.WriteLine(piece);
+            // Console.WriteLine(piece);
             Point p1 = new Point { X = 0, Y = 0 };
             // Map location to grid coordinates
             switch (location[0])
@@ -108,12 +108,12 @@ namespace Chess
 
                         if (borderPiece != "null")
                         {
+                            if (borderPiece[0] == piece[0])
+                            {
+                                // Console.WriteLine("Same Color: nulled");
+                                ValidLocations[i, j] = "null";
+                            }
                             if (borderPiece == piece) continue;
-                            // if (borderPiece[0] == piece[0])
-                            // {
-                            //     Console.WriteLine("Same Color: nulled");
-                            //     ValidLocations[i, j] = "null";
-                            // }
                             borderPiece = PieceLocations.BoardLocations[i, j];
                             // Convert board position to coordinates for comparison
                             Point borderLocation = new Point { X = 0, Y = 0 };
@@ -133,7 +133,7 @@ namespace Chess
                             {
                                 for (int l = i; l < PieceLocations.BoardLocations.GetLength(0); l++)
                                 {
-                                    for (int t = j; t < ValidLocations.GetLength(1); t++)
+                                    for (int t = 0; t < ValidLocations.GetLength(1); t++)
                                     {
                                         string testPiece = PieceLocations.BoardLocations[l, t];
                                         Point testLocation = new Point { X = 0, Y = 0 };
@@ -344,25 +344,17 @@ namespace Chess
                 }
             }
 
-            string h = "\n";
-            int g = 1;
-            foreach (var item in ValidLocations)
-            {
-                h += item;
-                if (g % 8 == 0) h += "\n";
-                g++;
-            }
-            Console.WriteLine(h);
-            Console.ReadLine();
-            // need to get the nearest white/black piece to the chosen piece determine 
-            //          {i have gotten A point that is valid but it is not the nearest. 
-            //          just test this point and then every other point too in the next part}
+            // string h = "\n";
+            // int g = 1;
+            // foreach (var item in ValidLocations)
+            // {
+            //     h += item;
+            //     if (g % 8 == 0) h += "\n";
+            //     g++;
+            // }
+            // Console.WriteLine(h);
+            // Console.ReadLine();
 
-            // weather pieces past that nearest boarder piece and test any valid pieces
-            // are on the line past the bad peice using: 
-            // [line].IsPointBad(location, boundaryPoint, test point)
-            // if that is true then make the "Valid" null other wise do nothing and
-            // after return the array
             return ValidLocations;
         }
     }

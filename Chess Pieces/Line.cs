@@ -80,9 +80,9 @@ namespace Chess
             //   neg slope 0    -2                20        //   pos slope        2                20
             //        cP.y > bp.y = bp.x > tp.x             //              cP.y < bp.y = bp.x > tp.x
 
-            // below left cP: cp= 4 bp= 2    cp= 40 bp= 30  // below right cP: cp= 4 bp= 6    cp= 40 bp= 20
-            //   neg slope 0     -2               -10        //   pos slope        2               -20
-            //        cP.y > bp.y = bp.x > tp.x             //              cP.y < bp.y = bp.x < tp.x
+            // below left cP: cp= 4 bp= 3    cp= 40 bp= 30  // below right cP: cp= 4 bp= 6    cp= 40 bp= 20
+            //   neg slope 0    -2                -10       //   pos slope        2               -20
+            //        cP.y > bp.y = bp.x > tp.X             //              cP.y < bp.y = bp.x < tp.x
 
             // equal left cP: cp= 4 bp= 2    cp= 40 bp= 40  // equal right cP: cp= 4 bp= 6    cp= 40 bp= 40
             //   neg slope 0    -2                0         //   pos slope        2                0
@@ -92,8 +92,8 @@ namespace Chess
             // above left cP: cp= 4 tp= 1    cp= 40 tp= 70  // above right cP: cp= 4 tp= 7    cp= 40 tp= 70
             //                  -3                30        //                    3                30
 
-            // below left cP: cp= 4 tp= 1    cp= 40 tp= 20  // below right cP: cp= 4 tp= 7    cp= 40 tp= 10
-            //                  -3               -20        //                    3               -30
+            // below left cP: cp= 4 tp= 1    cp= 40 tp= 10  // below right cP: cp= 4 tp= 7    cp= 40 tp= 10
+            //                  -3               -30        //                    3               -30
 
             // equal left cP: cp= 4 tp= 1    cp= 40 tp= 40  // equal right cP: cp= 4 tp= 7    cp= 40 tp= 40
             //                  -3                0         //                    3                0
@@ -107,12 +107,12 @@ namespace Chess
                                60 {"b1","Border","b3","border","b5","border","b7","b8"}
                                50 {"c1","c2","c3","c4","c5","c6","c7","c8"}
                                40 {"d1","d2","d3","bQ","d5","d6","d7","d8"}
-                               30 {"e1","e2","e3","e4","e5","e6","e7","e8"}
-                               20 {"f1","f2","f3","f4","f5","border","f7","f8"}
-                               10 {"border","g2","border","g4","g5","g6","emmptyFind","g8"}
+                               30 {"e1","e2","border","e4","e5","e6","e7","e8"}
+                               20 {"f1","find","f3","f4","f5","border","f7","f8"}
+                               10 {"find","g2","border","g4","g5","g6","emmptyFind","g8"}
                                00 {"h1","h2","h3","find","h5","h6","h7","find"}
                                     1    2    3    4    5    6    7    8
-                            */ // -3 against -4 cp > bp      ||||||          2 against 3 cp < bp
+                            */ 
             if (vertical)
             {
                 // Compare Y in local reference frame
