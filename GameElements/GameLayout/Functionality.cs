@@ -3,7 +3,7 @@ namespace GameElements;
 #pragma warning disable CS8604 // Possible null reference argument.
 
 
-class game
+class Game
 {
 
 
@@ -416,7 +416,6 @@ class game
         //     int angleRight = answerTwo - answer;
         //     if (((answerTwo - 1 == answer + 15 || answerTwo - 1 == answer + 7) && boardArray[answerTwo - 1] == empty) || ((boardArray[answerTwo - 1] == pawnArrayTwo || boardArray[answerTwo - 1] == rookArrayTwo || boardArray[answerTwo - 1] == knightArrayTwo || boardArray[answerTwo - 1] == bishopArrayTwo || boardArray[answerTwo - 1] == queenArrayTwo || boardArray[answerTwo - 1] == kingArrayTwo) && (angleLeft == 7 || angleRight == 9)))
         //     {
-        Console.WriteLine("pawn");
                 string[] save = boardArray[answer - 1];
                 boardArray[answer - 1] = empty;
                 boardArray[answerTwo - 1] = save;
@@ -432,7 +431,6 @@ class game
         //     int angleRight = answer - answerTwo;
         //     if (((answerTwo - 1 == answer - 9 || answerTwo - 1 == answer - 17) && boardArray[answerTwo - 1] == empty) || ((boardArray[answerTwo - 1] == pawnArray || boardArray[answerTwo - 1] == rookArray || boardArray[answerTwo - 1] == knightArray || boardArray[answerTwo - 1] == bishopArray || boardArray[answerTwo - 1] == queenArray || boardArray[answerTwo - 1] == kingArray) && (angleLeft == 9 || angleRight == 7)))
         //     {
-        Console.WriteLine("pawn");
                 string[] save = boardArray[answer - 1];
                 boardArray[answer - 1] = empty;
                 boardArray[answerTwo - 1] = save;
