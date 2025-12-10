@@ -1,13 +1,12 @@
-﻿using GameElements;
+using Chess;
+using GameElements;
 
-class Program
+public class Program
 {
-
     public static void Main(string[] args)
     {
-        game Game = new game();
         Console.Clear();
-        game.run();
-
+        game Game = new game();
+        PieceLocations.PlayGame();
     }
 }
