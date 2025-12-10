@@ -394,24 +394,6 @@ class game
             Console.WriteLine("");
         }
     }
-    static string Hex(string hex, bool isBackground = false)
-    {
-
-        if (hex.StartsWith("#"))
-            hex = hex.Substring(1);
-
-        if (hex.Length != 6)
-            throw new ArgumentException("Hex color must be in format #RRGGBB");
-
-
-        int r = Convert.ToInt32(hex.Substring(0, 2), 16);
-        int g = Convert.ToInt32(hex.Substring(2, 2), 16);
-        int b = Convert.ToInt32(hex.Substring(4, 2), 16);
-
-
-
-        return $"\x1b[{(isBackground ? "48" : "38")};2;{r};{g};{b}m";
-    }
 
     public static void run()
     {
@@ -425,14 +407,13 @@ class game
             PrintBoard();
             
 
-            Console.WriteLine($"{Hex(tan)}This is red-orange text{Hex("#FFFFFF")}");
             Console.WriteLine("What piece move?");
             int answer = int.Parse(Console.ReadLine());
             Console.WriteLine("To where?");
             int answerTwo = int.Parse(Console.ReadLine());
 
             //Pawn movements
-            /*
+            
             if (boardArray[answer - 1] == pawnArray)
             {
                 int angleLeft = answerTwo - answer;
@@ -679,7 +660,7 @@ class game
             {
                 Console.WriteLine("That is not a piece!");
             }
-            */
+            
 
             if (boardArray.Contains(kingArray) && boardArray.Contains(kingArrayTwo))
             {
