@@ -6,7 +6,7 @@ public class Program
     public static void Main(string[] args)
     {
         Console.Clear();
-        game Game = new game();
+        Game Game = new Game();
         PieceLocations.PlayGame();
     }
 }
