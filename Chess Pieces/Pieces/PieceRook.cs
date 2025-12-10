@@ -279,16 +279,16 @@ namespace chess
                 }
             }
 
-            // string h = "\n";
-            // int g = 1;
-            // foreach (var item in ValidLocations)
-            // {
-            //     h += item;
-            //     if (g % 8 == 0) h += "\n";
-            //     g++;
-            // }
-            // Console.WriteLine(h);
-            // Console.ReadLine();
+            string h = "\n";
+            int g = 1;
+            foreach (var item in ValidLocations)
+            {
+                h += item;
+                if (g % 8 == 0) h += "\n";
+                g++;
+            }
+            Console.WriteLine(h);
+            Console.ReadLine();
 
             return ValidLocations;
         }
