@@ -491,21 +491,25 @@ namespace Chess
             movePieceStart:
                 Console.Clear();
                 Game.DisplayBoard();
+                Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine("Type in the location of the piece you would like to move.");
                 string moveChoicePiece = Console.ReadLine().ToLower();
                 if (moveChoicePiece == "0") goto movePieceStart;
                 Console.WriteLine("Checking your piece choice...");
                 string pieceChosen = "";
                 string pieceLocation = "";
+                int l = 0;
+                int t = 0;
                 for (int i = 0; i < BoardLocations.GetLength(0); i++)
                 {
                     for (int j = 0; j < BoardLocations.GetLength(1); j++)
                     {
-                        if (BoardLocations[i, j] == moveChoicePiece && PieceCurrentLocations[i, j] != null)
+                        if (BoardLocations[i, j] == moveChoicePiece && PieceCurrentLocations[i, j] != "null")
                         {
                             pieceChosen = PieceCurrentLocations[i, j];
-
                             pieceLocation = BoardLocations[i, j];
+                            l = i;
+                            t = j;
                             pieceLocationNum = Converter(pieceLocation);
                             goto checkChoiceGood;
                         }
@@ -533,7 +537,10 @@ namespace Chess
                         if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != "null")
                         {
                             NotateMove(pieceLocation, pieceChosen, moveChoiceLocation, PieceCurrentLocations[i, j]);
-                            moveChoiceLocationNum = Converter(BoardLocations[i,j]);
+
+                            moveChoiceLocationNum = Converter(BoardLocations[i, j]);
+                            PieceCurrentLocations[i, j] = PieceCurrentLocations[l, t];
+                            PieceCurrentLocations[l, t] = "null";
                             Game.MovePiece(pieceLocationNum, moveChoiceLocationNum);
                             goto checkMoveGood;
                         }
