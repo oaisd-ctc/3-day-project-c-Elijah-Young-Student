@@ -4,6 +4,7 @@
 
 using System;
 using System.Reflection.Emit;
+using GameElements;
 
 namespace Chess
 {
@@ -25,10 +26,10 @@ namespace Chess
         // the array of where the pieces are currently
         public static string[,] PieceCurrentLocations =
         {
-            {"bR","bN","bB","null","bK","bB","bN","bR"},
+            {"bR","bN","bB","bQ","bK","bB","bN","bR"},
             {"bP1","bP2","bP3","bP4","bP5","bP6","bP7","bP8"},
             {"null","null","null","null","null","null","null","null"},
-            {"null","null","null","bP1","null","null","null","null"},
+            {"null","null","null","null","null","null","null","null"},
             {"null","null","null","null","null","null","null","null"},
             {"null","null","null","null","bP4","null","null","null"},
             {"wP1","wP2","wP3","wP4","wP5","wP6","wP7","wP8"},
@@ -63,7 +64,7 @@ namespace Chess
         // method to edit the pieceValidMove array
         public static string[,] UpdateValidMove(string piece, string location)
         {
-            string[,] validMove = {{" "}};
+            string[,] validMove = { { " " } };
             switch (piece)
             {
                 case "wQ":
@@ -164,7 +165,7 @@ namespace Chess
 
         public static string[,] UpdateValidMoveWithoutKing(string piece, string location)
         {
-            string[,] validMove = {{" "}};
+            string[,] validMove = { { " " } };
             switch (piece)
             {
                 case "wQ":
@@ -413,16 +414,16 @@ namespace Chess
         {
             while (true)
             {
+                int pieceLocationNum = 0;
             movePieceStart:
                 Console.Clear();
-                //DisplayBoard();
+                game.DisplayBoard();
                 Console.WriteLine("Type in the location of the piece you would like to move.");
                 string moveChoicePiece = Console.ReadLine().ToLower();
                 if (moveChoicePiece == "0") goto movePieceStart;
                 Console.WriteLine("Checking your piece choice...");
                 string pieceChosen = "";
                 string pieceLocation = "";
-                int PieceLocationNum = 0;
                 for (int i = 0; i < BoardLocations.GetLength(0); i++)
                 {
                     for (int j = 0; j < BoardLocations.GetLength(1); j++)
@@ -430,8 +431,9 @@ namespace Chess
                         if (BoardLocations[i, j] == moveChoicePiece && PieceCurrentLocations[i, j] != null)
                         {
                             pieceChosen = PieceCurrentLocations[i, j];
+
                             pieceLocation = BoardLocations[i, j];
-                            PieceLocationNum = i * j;
+                            pieceLocationNum = (i + 1) * (j + 1);
                             goto checkChoiceGood;
                         }
                         else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)
@@ -458,8 +460,8 @@ namespace Chess
                         if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != "null")
                         {
                             NotateMove(pieceLocation, pieceChosen, moveChoiceLocation, PieceCurrentLocations[i, j]);
-                            moveChoiceLocationNum = i * j;
-                            // MovePiece(pieceLocationNum, moveChoiceLocationNum);
+                            moveChoiceLocationNum = (i + 1) * (j + 1);
+                            game.MovePiece(pieceLocationNum, moveChoiceLocationNum);
                             goto checkMoveGood;
                         }
                         else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)

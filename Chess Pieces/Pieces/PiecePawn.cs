@@ -68,14 +68,14 @@ namespace chess
                 string enPassante = "";
                 if (piece[0] != PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0])
                 {
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 - 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 - 1) != null)
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 - 1)[0]}f";
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 + 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 + 1) != null)
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 + 1)[0]}f";
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 - 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 - 1) != null)
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 - 1)[0]}f";
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 + 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 + 1) != null)
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 + 1)[0]}f";
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
                 }
