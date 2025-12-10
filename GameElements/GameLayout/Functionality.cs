@@ -432,6 +432,7 @@ class game
             int answerTwo = int.Parse(Console.ReadLine());
 
             //Pawn movements
+            /*
             if (boardArray[answer - 1] == pawnArray)
             {
                 int angleLeft = answerTwo - answer;
@@ -678,7 +679,7 @@ class game
             {
                 Console.WriteLine("That is not a piece!");
             }
-
+            */
 
             if (boardArray.Contains(kingArray) && boardArray.Contains(kingArrayTwo))
             {
