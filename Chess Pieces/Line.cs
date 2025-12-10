@@ -103,16 +103,17 @@ namespace Chess
                 return false;
             // 2. Determine direction of line
             /*
-                               70 {"find","a2","a3","emptyfind","a5","a6","find","a8"}
-                               60 {"b1","Border","b3","border","b5","border","b7","b8"}
-                               50 {"c1","c2","c3","c4","c5","c6","c7","c8"}
-                               40 {"d1","d2","d3","bQ","d5","d6","d7","d8"}
-                               30 {"e1","e2","border","e4","e5","e6","e7","e8"}
-                               20 {"f1","find","f3","f4","f5","border","f7","f8"}
-                               10 {"find","g2","border","g4","g5","g6","emmptyFind","g8"}
-                               00 {"h1","h2","h3","find","h5","h6","h7","find"}
-                                    1    2    3    4    5    6    7    8
-                            */ 
+            
+               70 {"find","a2","a3","emptyfind","a5","a6","find","a8"}
+               60 {"b1","Border","b3","border","b5","border","b7","b8"}
+               50 {"c1","c2","c3","c4","c5","c6","c7","c8"}
+               40 {"d1","d2","d3","bQ","d5","d6","d7","d8"}
+               30 {"e1","e2","border","e4","e5","e6","e7","e8"}
+               20 {"f1","find","f3","f4","f5","border","f7","f8"}
+               10 {"find","g2","border","g4","g5","g6","emmptyFind","g8"}
+               00 {"h1","h2","h3","find","h5","h6","h7","find"}
+                    1    2    3    4    5    6    7    8
+            */ 
             if (vertical)
             {
                 // Compare Y in local reference frame
