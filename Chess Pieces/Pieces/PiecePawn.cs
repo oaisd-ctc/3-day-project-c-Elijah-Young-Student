@@ -68,14 +68,14 @@ namespace chess
                 string enPassante = "";
                 if (piece[0] != PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0])
                 {
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 - 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 - 1) != null)
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 - 1)[0]}f";
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 + 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 + 1) != null)
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2 + 1)[0]}f";
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 - 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 - 1) != null)
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 - 1)[0]}f";
-                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 + 1) != "null")
+                    if (SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 + 1) != null)
                         enPassante = $"{PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1][0]}{SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2 + 1)[0]}f";
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
                 }
@@ -84,7 +84,7 @@ namespace chess
                     (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 - 1, locationLoc2) && SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 - 1, locationLoc2) == "null" && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'w') || // 1x
                     (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 - 2, locationLoc2) && FirstTurn && SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 - 2, locationLoc2) == "null" && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'w') || // initial 2x
                     (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 + 1, locationLoc2) && SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 + 1, locationLoc2) == "null" && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'b') || // 1x
-                    (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2) && FirstTurn && SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 - 1, locationLoc2) == "null" && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'b') || // initial 2x
+                    (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 + 2, locationLoc2) && FirstTurn && SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 + 2, locationLoc2) == "null" && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'b') || // initial 2x
                     (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 - 1, locationLoc2 - 1) && (SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 - 1, locationLoc2 - 1) != "null" || PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1] == enPassante) && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'w') || // take
                     (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 - 1, locationLoc2 + 1) && (SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 - 1, locationLoc2 + 1) != "null" || PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1] == enPassante) && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'w') || // take
                     (p2String == SafeGet(PieceLocations.BoardLocations, locationLoc1 + 1, locationLoc2 - 1) && (SafeGet(PieceLocations.PieceCurrentLocations, locationLoc1 + 1, locationLoc2 - 1) != "null" || PieceLocations.NotatedMoves[PieceLocations.NotatedMoves.Length - 1] == enPassante) && PieceLocations.PieceCurrentLocations[locationLoc1, locationLoc2][0] == 'b') || // take

@@ -4,6 +4,7 @@
 
 using System;
 using System.Reflection.Emit;
+using GameElements;
 
 namespace Chess
 {
@@ -25,10 +26,10 @@ namespace Chess
         // the array of where the pieces are currently
         public static string[,] PieceCurrentLocations =
         {
-            {"bR","bN","bB","null","bK","bB","bN","bR"},
+            {"bR","bN","bB","bQ","bK","bB","bN","bR"},
             {"bP1","bP2","bP3","bP4","bP5","bP6","bP7","bP8"},
             {"null","null","null","null","null","null","null","null"},
-            {"null","null","null","bP1","null","null","null","null"},
+            {"null","null","null","null","null","null","null","null"},
             {"null","null","null","null","null","null","null","null"},
             {"null","null","null","null","bP4","null","null","null"},
             {"wP1","wP2","wP3","wP4","wP5","wP6","wP7","wP8"},
@@ -63,7 +64,7 @@ namespace Chess
         // method to edit the pieceValidMove array
         public static string[,] UpdateValidMove(string piece, string location)
         {
-            string[,] validMove = {{" "}};
+            string[,] validMove = { { " " } };
             switch (piece)
             {
                 case "wQ":
@@ -164,7 +165,7 @@ namespace Chess
 
         public static string[,] UpdateValidMoveWithoutKing(string piece, string location)
         {
-            string[,] validMove = {{" "}};
+            string[,] validMove = { { " " } };
             switch (piece)
             {
                 case "wQ":
@@ -408,21 +409,94 @@ namespace Chess
             }
         }
 
-        // method to move pieces around the board
+        // method to change from board squares to the corresponding number
+        public static int Converter(string location)
+        {
+            switch (location)
+            {
+                case "a1": return 1;
+                case "a2": return 2;
+                case "a3": return 3;
+                case "a4": return 4;
+                case "a5": return 5;
+                case "a6": return 6;
+                case "a7": return 7;
+                case "a8": return 8;
+                case "b1": return 9;
+                case "b2": return 10;
+                case "b3": return 11;
+                case "b4": return 12;
+                case "b5": return 13;
+                case "b6": return 14;
+                case "b7": return 15;
+                case "b8": return 16;
+                case "c1": return 17;
+                case "c2": return 18;
+                case "c3": return 19;
+                case "c4": return 20;
+                case "c5": return 21;
+                case "c6": return 22;
+                case "c7": return 23;
+                case "c8": return 24;
+                case "d1": return 25;
+                case "d2": return 26;
+                case "d3": return 27;
+                case "d4": return 28;
+                case "d5": return 29;
+                case "d6": return 30;
+                case "d7": return 31;
+                case "d8": return 32;
+                case "e1": return 33;
+                case "e2": return 34;
+                case "e3": return 35;
+                case "e4": return 36;
+                case "e5": return 37;
+                case "e6": return 38;
+                case "e7": return 39;
+                case "e8": return 40;
+                case "f1": return 41;
+                case "f2": return 42;
+                case "f3": return 43;
+                case "f4": return 44;
+                case "f5": return 45;
+                case "f6": return 46;
+                case "f7": return 47;
+                case "f8": return 48;
+                case "g1": return 49;
+                case "g2": return 50;
+                case "g3": return 51;
+                case "g4": return 52;
+                case "g5": return 53;
+                case "g6": return 54;
+                case "g7": return 55;
+                case "g8": return 56;
+                case "h1": return 57;
+                case "h2": return 58;
+                case "h3": return 59;
+                case "h4": return 60;
+                case "h5": return 61;
+                case "h6": return 62;
+                case "h7": return 63;
+                case "h8": return 64;
+                default: return 0;
+            }
+        }
+
+        // method to get were to move and check the locations
         public static void PlayGame()
         {
             while (true)
             {
+                int pieceLocationNum = 0;
             movePieceStart:
                 Console.Clear();
-                //DisplayBoard();
+                Game.DisplayBoard();
                 Console.WriteLine("Type in the location of the piece you would like to move.");
                 string moveChoicePiece = Console.ReadLine().ToLower();
                 if (moveChoicePiece == "0") goto movePieceStart;
                 Console.WriteLine("Checking your piece choice...");
                 string pieceChosen = "";
                 string pieceLocation = "";
-                int PieceLocationNum = 0;
                 for (int i = 0; i < BoardLocations.GetLength(0); i++)
                 {
                     for (int j = 0; j < BoardLocations.GetLength(1); j++)
@@ -430,8 +504,9 @@ namespace Chess
                         if (BoardLocations[i, j] == moveChoicePiece && PieceCurrentLocations[i, j] != null)
                         {
                             pieceChosen = PieceCurrentLocations[i, j];
+
                             pieceLocation = BoardLocations[i, j];
-                            PieceLocationNum = i * j;
+                            pieceLocationNum = Converter(pieceLocation);
                             goto checkChoiceGood;
                         }
                         else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)
@@ -458,8 +533,8 @@ namespace Chess
                         if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != "null")
                         {
                             NotateMove(pieceLocation, pieceChosen, moveChoiceLocation, PieceCurrentLocations[i, j]);
-                            moveChoiceLocationNum = i * j;
-                            // MovePiece(pieceLocationNum, moveChoiceLocationNum);
+                            moveChoiceLocationNum = Converter(BoardLocations[i,j]);
+                            Game.MovePiece(pieceLocationNum, moveChoiceLocationNum);
                             goto checkMoveGood;
                         }
                         else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)
