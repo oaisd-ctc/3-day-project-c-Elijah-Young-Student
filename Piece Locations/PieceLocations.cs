@@ -47,7 +47,7 @@ namespace Chess
         public static string[,] PiecesTaken = new string[2, 16];
 
         // the array for the moves that are valid for the piece to move to
-        private static string[,] PieceValidMove =
+        public static string[,] PieceValidMove =
         { // "Valid"
             {null,null,null,null,null,null,null,null},
             {null,null,null,null,null,null,null,null},
