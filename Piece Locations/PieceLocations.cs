@@ -180,7 +180,7 @@ namespace Chess
         //         case "wB":
         //             validMove = PieceConstructor.wB.CreateValidMoveArray(piece, location);
         //             break;
-// 
+        // 
         //         case "bQ":
         //             validMove = PieceConstructor.bQ.CreateValidMoveArray(piece, location);
         //             break;
@@ -556,6 +556,64 @@ namespace Chess
                     }
                 }
             checkMoveGood:;
+                int g = 0;
+                for (int j = 0; j < PieceCurrentLocations.GetLength(1); j++)
+                {
+                    if (PieceCurrentLocations[g, j][0] + PieceCurrentLocations[g, j][1] == 'w' + 'P')
+                    {
+                    pawnPromotion1:
+                        Console.WriteLine("Select the promotion wou would like to do");
+                        Console.WriteLine(" | Queen | Rook | Bishop | Knight |");
+                        string choice = Console.ReadLine().ToLower();
+                        switch (choice)
+                        {
+                            case "queen":
+                                PieceCurrentLocations[g, j] = "wQ";
+                                break;
+                            case "rook":
+                                PieceCurrentLocations[g, j] = "wR";
+                                break;
+                            case "bishop":
+                                PieceCurrentLocations[g, j] = "wB";
+                                break;
+                            case "knight":
+                                PieceCurrentLocations[g, j] = "wN";
+                                break;
+                            default:
+                                Console.WriteLine("That is not a piece");
+                                goto pawnPromotion1;
+                        }
+                    }
+                }
+                g = 7;
+                for (int j = 0; j < PieceCurrentLocations.GetLength(1); j++)
+                {
+                    if (PieceCurrentLocations[g, j][0] + PieceCurrentLocations[g, j][1] == 'w' + 'P')
+                    {
+                    pawnPromotion:
+                        Console.WriteLine("Select the promotion wou would like to do");
+                        Console.WriteLine(" | Queen | Rook | Bishop | Knight |");
+                        string choice = Console.ReadLine().ToLower();
+                        switch (choice)
+                        {
+                            case "queen":
+                                PieceCurrentLocations[g, j] = "bQ";
+                                break;
+                            case "rook":
+                                PieceCurrentLocations[g, j] = "bR";
+                                break;
+                            case "bishop":
+                                PieceCurrentLocations[g, j] = "bB";
+                                break;
+                            case "knight":
+                                PieceCurrentLocations[g, j] = "bN";
+                                break;
+                            default:
+                                Console.WriteLine("That is not a piece");
+                                goto pawnPromotion;
+                        }
+                    }
+                }
             }
         }
     }
