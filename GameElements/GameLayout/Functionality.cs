@@ -151,7 +151,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -163,7 +163,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -184,7 +184,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -196,7 +196,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -216,7 +216,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -228,7 +228,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -248,7 +248,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -260,7 +260,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -280,7 +280,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -292,7 +292,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -312,7 +312,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -324,7 +324,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -344,7 +344,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -356,7 +356,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -377,7 +377,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
@@ -389,7 +389,7 @@ class Game
                 {
                     if (boardArray[r] == kingArrayTwo || boardArray[r] == queenArrayTwo || boardArray[r] == bishopArrayTwo || boardArray[r] == knightArrayTwo || boardArray[r] == rookArrayTwo || boardArray[r] == pawnArrayTwo)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else
                     {
