@@ -82,6 +82,18 @@ namespace chess
                 }
                 if (iString[1] == '8') i += 2;
             }
+
+            // string h = "\n";
+            // int g = 1;
+            // foreach (var item in ValidLocations)
+            // {
+            //     h += item;
+            //     if (g % 8 == 0) h += "\n";
+            //     g++;
+            // }
+            // Console.WriteLine(h);
+            // Console.ReadLine();
+
             for (int i = 0; i < PieceLocations.BoardLocations.GetLength(0); i++)
             {
                 for (int j = 0; j < ValidLocations.GetLength(1); j++)

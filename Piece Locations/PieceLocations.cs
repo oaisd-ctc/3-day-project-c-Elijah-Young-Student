@@ -26,14 +26,14 @@ namespace Chess
         // the array of where the pieces are currently
         public static string[,] PieceCurrentLocations =
         {
-            {"bR","bN","bB","bQ","bK","bB","bN","bR"},
+            {"bR","bN","bB","bK","bQ","bB","bN","bR"},
             {"bP1","bP2","bP3","bP4","bP5","bP6","bP7","bP8"},
             {"null","null","null","null","null","null","null","null"},
             {"null","null","null","null","null","null","null","null"},
             {"null","null","null","null","null","null","null","null"},
-            {"null","null","null","null","bP4","null","null","null"},
+            {"null","null","null","null","null","null","null","null"},
             {"wP1","wP2","wP3","wP4","wP5","wP6","wP7","wP8"},
-            {"wR","wN","wB","wQ","wK","wB","wN","wR"}
+            {"wR","wN","wB","wK","wQ","wB","wN","wR"}
         };
 
         // the pieces that are still in play
@@ -79,7 +79,7 @@ namespace Chess
                 case "wR":
                     validMove = PieceConstructor.wR.CreateValidMoveArray(piece, location);
                     break;
-                case "WB":
+                case "wB":
                     validMove = PieceConstructor.wB.CreateValidMoveArray(piece, location);
                     break;
 
@@ -163,100 +163,100 @@ namespace Chess
             return validMove;
         }
 
-        public static string[,] UpdateValidMoveWithoutKing(string piece, string location)
-        {
-            string[,] validMove = { { " " } };
-            switch (piece)
-            {
-                case "wQ":
-                    validMove = PieceConstructor.wQ.CreateValidMoveArray(piece, location);
-                    break;
-                case "wN":
-                    validMove = PieceConstructor.wN.CreateValidMoveArray(piece, location);
-                    break;
-                case "wR":
-                    validMove = PieceConstructor.wR.CreateValidMoveArray(piece, location);
-                    break;
-                case "WB":
-                    validMove = PieceConstructor.wB.CreateValidMoveArray(piece, location);
-                    break;
-
-                case "bQ":
-                    validMove = PieceConstructor.bQ.CreateValidMoveArray(piece, location);
-                    break;
-                case "bN":
-                    validMove = PieceConstructor.bN.CreateValidMoveArray(piece, location);
-                    break;
-                case "bR":
-                    validMove = PieceConstructor.bR.CreateValidMoveArray(piece, location);
-                    break;
-                case "bB":
-                    validMove = PieceConstructor.bB.CreateValidMoveArray(piece, location);
-                    break;
-            }
-            switch (piece[0], piece[1])
-            {
-                case ('w', 'P'):
-                    switch (piece[2])
-                    {
-                        case '1':
-                            validMove = PieceConstructor.wP1.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '2':
-                            validMove = PieceConstructor.wP2.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '3':
-                            validMove = PieceConstructor.wP3.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '4':
-                            validMove = PieceConstructor.wP4.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '5':
-                            validMove = PieceConstructor.wP5.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '6':
-                            validMove = PieceConstructor.wP6.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '7':
-                            validMove = PieceConstructor.wP7.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '8':
-                            validMove = PieceConstructor.wP8.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                    }
-                    break;
-                case ('b', 'P'):
-                    switch (piece[2])
-                    {
-                        case '1':
-                            validMove = PieceConstructor.bP1.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '2':
-                            validMove = PieceConstructor.bP2.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '3':
-                            validMove = PieceConstructor.bP3.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '4':
-                            validMove = PieceConstructor.bP4.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '5':
-                            validMove = PieceConstructor.bP5.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '6':
-                            validMove = PieceConstructor.bP6.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '7':
-                            validMove = PieceConstructor.bP7.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                        case '8':
-                            validMove = PieceConstructor.bP8.CreateValidMoveArrayWithoutForwardMove(piece, location);
-                            break;
-                    }
-                    break;
-            }
-            return validMove;
-        }
+        // public static string[,] UpdateValidMoveWithoutKing(string piece, string location)
+        // {
+        //     string[,] validMove = { { " " } };
+        //     switch (piece)
+        //     {
+        //         case "wQ":
+        //             validMove = PieceConstructor.wQ.CreateValidMoveArray(piece, location);
+        //             break;
+        //         case "wN":
+        //             validMove = PieceConstructor.wN.CreateValidMoveArray(piece, location);
+        //             break;
+        //         case "wR":
+        //             validMove = PieceConstructor.wR.CreateValidMoveArray(piece, location);
+        //             break;
+        //         case "wB":
+        //             validMove = PieceConstructor.wB.CreateValidMoveArray(piece, location);
+        //             break;
+// 
+        //         case "bQ":
+        //             validMove = PieceConstructor.bQ.CreateValidMoveArray(piece, location);
+        //             break;
+        //         case "bN":
+        //             validMove = PieceConstructor.bN.CreateValidMoveArray(piece, location);
+        //             break;
+        //         case "bR":
+        //             validMove = PieceConstructor.bR.CreateValidMoveArray(piece, location);
+        //             break;
+        //         case "bB":
+        //             validMove = PieceConstructor.bB.CreateValidMoveArray(piece, location);
+        //             break;
+        //     }
+        //     switch (piece[0], piece[1])
+        //     {
+        //         case ('w', 'P'):
+        //             switch (piece[2])
+        //             {
+        //                 case '1':
+        //                     validMove = PieceConstructor.wP1.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '2':
+        //                     validMove = PieceConstructor.wP2.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '3':
+        //                     validMove = PieceConstructor.wP3.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '4':
+        //                     validMove = PieceConstructor.wP4.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '5':
+        //                     validMove = PieceConstructor.wP5.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '6':
+        //                     validMove = PieceConstructor.wP6.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '7':
+        //                     validMove = PieceConstructor.wP7.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '8':
+        //                     validMove = PieceConstructor.wP8.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //             }
+        //             break;
+        //         case ('b', 'P'):
+        //             switch (piece[2])
+        //             {
+        //                 case '1':
+        //                     validMove = PieceConstructor.bP1.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '2':
+        //                     validMove = PieceConstructor.bP2.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '3':
+        //                     validMove = PieceConstructor.bP3.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '4':
+        //                     validMove = PieceConstructor.bP4.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '5':
+        //                     validMove = PieceConstructor.bP5.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '6':
+        //                     validMove = PieceConstructor.bP6.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '7':
+        //                     validMove = PieceConstructor.bP7.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //                 case '8':
+        //                     validMove = PieceConstructor.bP8.CreateValidMoveArrayWithoutForwardMove(piece, location);
+        //                     break;
+        //             }
+        //             break;
+        //     }
+        //     return validMove;
+        // }
 
         // method to Notate the moves, for special moves like el passant and castling
         private static void NotateMove(string pieceLocation, string piece, string moveLocation, string pieceMove)
@@ -534,6 +534,8 @@ namespace Chess
                 {
                     for (int j = 0; j < BoardLocations.GetLength(1); j++)
                     {
+                        // Console.WriteLine(BoardLocations[i, j] == moveChoiceLocation);
+                        // Console.WriteLine(PieceValidMove[i, j]);
                         if (BoardLocations[i, j] == moveChoiceLocation && PieceValidMove[i, j] != "null")
                         {
                             NotateMove(pieceLocation, pieceChosen, moveChoiceLocation, PieceCurrentLocations[i, j]);
