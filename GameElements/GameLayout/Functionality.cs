@@ -659,7 +659,6 @@ class Game
 
         if (boardArray.Contains(kingArray) && boardArray.Contains(kingArrayTwo))
         {
-            Thread.Sleep(2000);
             Console.Clear();
             return true;
         }
