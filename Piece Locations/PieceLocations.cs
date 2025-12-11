@@ -48,7 +48,7 @@ namespace Chess
 
         // the array for the moves that are valid for the piece to move to
         private static string[,] PieceValidMove =
-        {
+        { // "Valid"
             {null,null,null,null,null,null,null,null},
             {null,null,null,null,null,null,null,null},
             {null,null,null,null,null,null,null,null},
@@ -485,7 +485,8 @@ namespace Chess
         // method to get were to move and check the locations
         public static void PlayGame()
         {
-            while (true)
+            bool kingAlive = true;
+            while (kingAlive)
             {
                 int pieceLocationNum = 0;
             movePieceStart:
@@ -543,7 +544,7 @@ namespace Chess
                             moveChoiceLocationNum = Converter(BoardLocations[i, j]);
                             PieceCurrentLocations[i, j] = PieceCurrentLocations[l, t];
                             PieceCurrentLocations[l, t] = "null";
-                            Game.MovePiece(pieceLocationNum, moveChoiceLocationNum);
+                            kingAlive = Game.MovePiece(pieceLocationNum, moveChoiceLocationNum);
                             goto checkMoveGood;
                         }
                         else if (i == BoardLocations.GetLength(0) - 1 && j == BoardLocations.GetLength(1) - 1)
