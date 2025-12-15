@@ -527,10 +527,22 @@ namespace Chess
                 PieceValidMove = UpdateValidMove(pieceChosen, pieceLocation);
 
             moveToCheck:
+                Console.Clear();
+                Game.DisplayBoard();
                 Console.WriteLine("Where do you want to move the piece too? [any num to change piece]");
                 string moveChoiceLocation = Console.ReadLine();
-                int moveChoiceLocationNum = 0;
-                if (int.TryParse(moveChoiceLocation, out moveChoiceLocationNum)) goto movePieceStart;
+                int moveChoiceLocationNum;
+                if (int.TryParse(moveChoiceLocation, out moveChoiceLocationNum))
+                {
+                    for (int i = 0; i < BoardLocations.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < BoardLocations.GetLength(1); j++)
+                        {
+                            PieceValidMove[i, j] = "null";
+                        }
+                    }
+                    goto movePieceStart;
+                }
                 for (int i = 0; i < BoardLocations.GetLength(0); i++)
                 {
                     for (int j = 0; j < BoardLocations.GetLength(1); j++)
@@ -555,7 +567,16 @@ namespace Chess
                         }
                     }
                 }
-            checkMoveGood:;
+            checkMoveGood:
+                for (int i = 0; i < BoardLocations.GetLength(0); i++)
+                {
+                    for (int j = 0; j < BoardLocations.GetLength(1); j++)
+                    {
+                        PieceValidMove[i, j] = "null";
+                    }
+                }
+
+                
                 int g = 0;
                 for (int j = 0; j < PieceCurrentLocations.GetLength(1); j++)
                 {
